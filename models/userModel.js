@@ -22,5 +22,5 @@ const signupSchema = new mongoose.Schema({
 })
 
 
-const signupInfo = mongoose.model("Register", signupSchema);
+const signupInfo = mongoose.model("Signup", signupSchema);
 module.exports = signupInfo;

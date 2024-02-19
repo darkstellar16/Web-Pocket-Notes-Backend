@@ -1,18 +1,17 @@
 require("dotenv").config();
-import { connect } from "mongoose";
+const mongoose = require("mongoose");
 
 
-// const  mongo_url  = "mongodb+srv://shubham:shubh@cluster0.oraafuo.mongodb.net/?retryWrites=true&w=majority";
+// const  mongo_url  = "mongodb+srv://admin:admin@cluster0.krfvfqt.mongodb.net/?retryWrites=true&w=majority";
 
 const MONGO_URL = process.env.MONGOURL;
 const connection = async () => {
-
     try {
-        connect(MONGO_URL, { useNewUrlParser: true })
+        mongoose.connect(MONGO_URL, { useNewUrlParser: true })
         console.log("Data base Connected");
     } catch (error) {
         console.log(error);
     }
 }
 
-export default connection;
+module.exports = connection;
