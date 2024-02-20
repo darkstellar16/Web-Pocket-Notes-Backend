@@ -4,8 +4,9 @@ const noteListSchema = new mongoose.Schema({
     title: String,
     color_code: String,
     userid: String,
-    datas: [{ type: mongoose.Types.ObjectId, ref: "Data" }]
-})
+    datas: [{ type: mongoose.Types.ObjectId, ref: "Data" }],
+
+}, { timestamps: true })
 
 const noteListInfo = mongoose.model("List", noteListSchema);
 module.exports = noteListInfo;
