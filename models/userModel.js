@@ -18,7 +18,10 @@ const signupSchema = new mongoose.Schema({
     },
     token: {
         type: String
-    }
+    },
+    lists: [{
+        type: mongoose.Types.ObjectId, ref: "List"
+    }]
 })
 
 
