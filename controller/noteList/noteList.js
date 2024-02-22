@@ -1,17 +1,18 @@
 const noteListInfo = require('../../models/noteListModel');
-
+const signupInfo = require("../../models/userModel");
 
 const noteListData = async (req, res) => {
     try {
         const { title, color_code, userid } = req.body;
-        const data = await noteListInfo.create({
+        const result = await noteListInfo.create({
             title: title,
             color_code: color_code,
             userid: userid
         })
-        res.status(200).send(data);
+        res.status(200).json({ status: 200, message: "Note Group Added Succesfully", result });
 
-        const response = await signupInfo.findOneAndUpdate({ _id: userid }, { $push: { lists: data._id } });
+        const response = await signupInfo.findOneAndUpdate({ _id: userid }, { $push: { lists: result._id } });
+        console.log(response);
 
     } catch (error) {
         console.log(error);
