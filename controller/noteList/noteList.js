@@ -11,8 +11,7 @@ const noteListData = async (req, res) => {
         })
         res.status(200).json({ status: 200, message: "Note Group Added Succesfully", result });
 
-        const response = await signupInfo.findOneAndUpdate({ _id: userid }, { $push: { lists: result._id } });
-        console.log(response);
+        const response = await signupInfo.findOneAndUpdate({ _id: userid }, { $push: { lists: result?._id } });
 
     } catch (error) {
         console.log(error);
