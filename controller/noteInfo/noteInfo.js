@@ -11,8 +11,6 @@ const noteInfoData = async (req, res) => {
         res.status(200).json({ status: 200, message: "Note Added Succesfully", result });
 
         const response = await noteListInfo.findOneAndUpdate({ _id: listid }, { $push: { datas: result._id } });
-        console.log(response);
-
     } catch (error) {
         console.log(error);
         res.status(400).json({ error: 'An error occurred while fetching data.' });

@@ -15,7 +15,6 @@ const signupData = async (req, res) => {
 
         if (oldUser) {
             return res.status(409).json({ status: 409, message: "Please login, you are already registered" });
-            //checking whether the user is already present or not..
         }
 
         const encryptedPasword = await bcrypt.hash(password, 10);

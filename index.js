@@ -22,7 +22,6 @@ app.get('/', (req, res) => {
 
 
 const port = process.env.PORT || 9000;
-console.log(port);
 app.listen(port, () => {
     console.log("Server is up and running")
 })

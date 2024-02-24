@@ -4,8 +4,6 @@ const signupInfo = require("../../models/userModel");
 const userData = async (req, res) => {
     try {
         const { _id } = req?.query;
-        // console.log(req.query);
-
         const result = await signupInfo.findOne({ _id: _id }).populate({
             path: "lists",
             populate: {
